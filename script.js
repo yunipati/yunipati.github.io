@@ -11,5 +11,5 @@ button.addEventListener('click', () => {
     const timeString = now.toLocaleString('ja-JP');
     
     // 画面に表示
-    displayArea.textContent = "ボタンが押された日時: " + timeString;
+    displayArea.textContent = "ボタンが押された日時はこちら: " + timeString;
 });
