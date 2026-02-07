@@ -65,7 +65,7 @@ function stopTimer() {
     }
 
     resultDisplay.innerHTML = `
-        誤差: ${absDiff.toFixed(3)} 秒<br>
+        誤差: ${absDiff.toFixed(2)} 秒<br>
         <span class="${statusClass}">${statusText}</span>
     `;
 }
