@@ -1,0 +1,12 @@
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial}
+body{background:#0b1020;display:flex;align-items:center;justify-content:center}
+.wrap{position:relative}
+canvas{display:block;background:#071026;border:4px solid #0e304a;border-radius:6px}
+.ui{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.score{position:absolute;left:12px;top:8px;color:#9fe7ff;font-weight:600;pointer-events:auto}
+.overlay{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;pointer-events:auto}
+.overlay.hidden{display:none}
+.panel{background:rgba(2,6,23,0.9);color:#e6faff;padding:18px 26px;border-radius:8px;border:1px solid #123547;text-align:center}
+.panel h2{margin:0 0 8px}
+button{background:#0aa; color:white; border:0; padding:8px 12px; border-radius:6px; cursor:pointer}
