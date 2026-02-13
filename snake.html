@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スネークゲーム</title>
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <div class="container">
+        <h1>スネークゲーム</h1>
+        <div class="info">
+            <div class="score">スコア: <span id="score">0</span></div>
+            <div class="status" id="status">ゲーム開始: 矢印キーで操作</div>
+        </div>
+        <div id="gameContainer"></div>
+        <button id="startBtn" onclick="startGame()">ゲーム開始</button>
+        <button id="resetBtn" onclick="resetGame()" style="display:none;">リセット</button>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html>
