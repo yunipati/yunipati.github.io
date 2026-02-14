@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数値変換ツール</title>
+  <link rel="stylesheet" href="converter.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>数値変換ツール</h1>
+    <p class="subtitle">10進数を2進数、8進数、16進数に変換します</p>
+
+    <div class="converter-box">
+      <div class="input-section">
+        <label for="inputNumber">10進数を入力:</label>
+        <input type="number" id="inputNumber" placeholder="例: 255" value="255">
+        <button id="convertBtn">変換</button>
+      </div>
+
+      <div class="results-section">
+        <div class="result-item">
+          <div class="result-label">2進数 (Binary)</div>
+          <div class="result-value" id="binaryResult">11111111</div>
+          <button class="copy-btn" onclick="copyToClipboard('binaryResult')">コピー</button>
+        </div>
+
+        <div class="result-item">
+          <div class="result-label">8進数 (Octal)</div>
+          <div class="result-value" id="octalResult">377</div>
+          <button class="copy-btn" onclick="copyToClipboard('octalResult')">コピー</button>
+        </div>
+
+        <div class="result-item">
+          <div class="result-label">16進数 (Hexadecimal)</div>
+          <div class="result-value" id="hexResult">FF</div>
+          <button class="copy-btn" onclick="copyToClipboard('hexResult')">コピー</button>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>入力値の詳細</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">10進数:</span>
+            <span class="info-value" id="decimalInfo">255</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">16進数 (小文字):</span>
+            <span class="info-value" id="hexLowerInfo">ff</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">8進数:</span>
+            <span class="info-value" id="octalInfo">377</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">負の数:</span>
+            <span class="info-value" id="negativeInfo">-255</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-section">
+        <h3>よく使うサンプル:</h3>
+        <div class="button-group">
+          <button class="example-btn" onclick="convertNumber(8)">8を変換</button>
+          <button class="example-btn" onclick="convertNumber(16)">16を変換</button>
+          <button class="example-btn" onclick="convertNumber(32)">32を変換</button>
+          <button class="example-btn" onclick="convertNumber(64)">64を変換</button>
+          <button class="example-btn" onclick="convertNumber(128)">128を変換</button>
+          <button class="example-btn" onclick="convertNumber(256)">256を変換</button>
+        </div>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-btn">戻る</a>
+  </div>
+
+  <script src="converter.js"></script>
+</body>
+
+</html>
