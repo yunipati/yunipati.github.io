@@ -239,6 +239,8 @@ function placePuyo() {
     return;
   }
 
+  // 配置後に必ず重力を適用
+  applyGravity();
   removePuyo();
   currentPuyo = generateNewPair();
   if (!isValidPosition()) {
