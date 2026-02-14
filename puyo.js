@@ -221,24 +221,30 @@ function isInBounds(x, y) {
 // ぷよを配置
 function placePuyo() {
   const blocks = currentPuyo.getBlocks();
+  let placedAny = false;
+
+  // ボード内のブロックだけを配置
   blocks.forEach(block => {
     if (block.y >= 0 && block.y < ROWS && block.x >= 0 && block.x < COLS) {
       gameBoard[block.y][block.x] = block.color;
-    } else {
-      gameOver = true;
-      gameActive = false;
-      statusDisplay.textContent = 'ゲームオーバー';
+      placedAny = true;
     }
   });
 
-  if (!gameOver) {
-    removePuyo();
-    currentPuyo = generateNewPair();
-    if (!isValidPosition()) {
-      gameOver = true;
-      gameActive = false;
-      statusDisplay.textContent = 'ゲームオーバー';
-    }
+  // ボード内に配置されたブロックがない場合はゲームオーバー
+  if (!placedAny) {
+    gameOver = true;
+    gameActive = false;
+    statusDisplay.textContent = 'ゲームオーバー';
+    return;
+  }
+
+  removePuyo();
+  currentPuyo = generateNewPair();
+  if (!isValidPosition()) {
+    gameOver = true;
+    gameActive = false;
+    statusDisplay.textContent = 'ゲームオーバー';
   }
 }
 
