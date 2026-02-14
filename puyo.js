@@ -2,7 +2,7 @@
 const COLS = 6;
 const ROWS = 12;
 const BLOCK_SIZE = 40;
-const COLORS = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F'];
+const COLORS = ['#FF0000', '#0000FF', '#00DD00', '#FFDD00', '#FF00FF', '#00DDDD'];
 
 // ゲーム状態
 let gameBoard = [];
@@ -372,21 +372,30 @@ function draw() {
 
 // ブロック描画
 function drawBlock(x, y, color, isActive = false) {
-  const px = x * BLOCK_SIZE;
-  const py = y * BLOCK_SIZE;
+  const px = x * BLOCK_SIZE + BLOCK_SIZE / 2;
+  const py = y * BLOCK_SIZE + BLOCK_SIZE / 2;
+  const radius = BLOCK_SIZE / 2 - 4;
 
+  // 円を描画
   ctx.fillStyle = color;
-  ctx.fillRect(px + 2, py + 2, BLOCK_SIZE - 4, BLOCK_SIZE - 4);
+  ctx.beginPath();
+  ctx.arc(px, py, radius, 0, Math.PI * 2);
+  ctx.fill();
 
+  // 外枠
   ctx.strokeStyle = isActive ? '#fff' : 'rgba(255,255,255,0.5)';
   ctx.lineWidth = isActive ? 2 : 1;
-  ctx.strokeRect(px + 2, py + 2, BLOCK_SIZE - 4, BLOCK_SIZE - 4);
+  ctx.beginPath();
+  ctx.arc(px, py, radius, 0, Math.PI * 2);
+  ctx.stroke();
 
   // ハイライト
   if (isActive) {
-    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+    ctx.strokeStyle = 'rgba(255,255,255,0.4)';
     ctx.lineWidth = 1;
-    ctx.strokeRect(px + 3, py + 3, BLOCK_SIZE - 6, BLOCK_SIZE - 6);
+    ctx.beginPath();
+    ctx.arc(px, py, radius - 3, 0, Math.PI * 2);
+    ctx.stroke();
   }
 }
 
