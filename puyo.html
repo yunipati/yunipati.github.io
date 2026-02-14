@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ぷよぷよ</title>
+  <link rel="stylesheet" href="puyo.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>ぷよぷよ</h1>
+    
+    <div class="game-wrapper">
+      <div class="game-info">
+        <div class="info-box">
+          <h3>スコア</h3>
+          <p id="score">0</p>
+        </div>
+        <div class="info-box">
+          <h3>状態</h3>
+          <p id="status">ゲーム中</p>
+        </div>
+        <div class="info-box">
+          <h3>操作方法</h3>
+          <p>← → 移動<br>↑ 回転<br>↓ 下降<br>SPACE スタート/ポーズ</p>
+        </div>
+      </div>
+
+      <div class="game-board-container">
+        <canvas id="gameCanvas" width="240" height="480"></canvas>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button id="startBtn">スタート</button>
+      <button id="pauseBtn">ポーズ</button>
+      <button id="resetBtn">リセット</button>
+      <a href="index.html" class="back-btn">戻る</a>
+    </div>
+  </div>
+
+  <script src="puyo.js"></script>
+</body>
+
+</html>
