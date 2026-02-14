@@ -190,7 +190,18 @@ function canMove(dx, dy) {
   return blocks.every(block => {
     const newX = block.x + dx;
     const newY = block.y + dy;
-    return isInBounds(newX, newY) && gameBoard[newY][newX] === null;
+    
+    // 左右の境界チェック
+    if (newX < 0 || newX >= COLS) return false;
+    
+    // 下の境界チェック
+    if (newY >= ROWS) return false;
+    
+    // 画面上部（y < 0）は落下を許可
+    if (newY < 0) return true;
+    
+    // ボード内の場合は空きをチェック
+    return gameBoard[newY][newX] === null;
   });
 }
 
