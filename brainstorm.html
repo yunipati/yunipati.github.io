@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brainstorming App</title>
+  <link rel="stylesheet" href="brainstorm-style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>💡 Brainstorm</h1>
+      <p class="subtitle">Explore your ideas</p>
+    </header>
+
+    <div class="controls">
+      <div class="filter-group">
+        <label for="tagFilter">Filter by tag:</label>
+        <select id="tagFilter">
+          <option value="">All tags</option>
+        </select>
+      </div>
+    </div>
+
+    <main class="idea-display">
+      <div id="ideaCard" class="idea-card">
+        <h2 id="ideaTitle">Loading...</h2>
+        <p id="ideaText">Loading your ideas...</p>
+        <div id="ideaTags" class="tags"></div>
+      </div>
+    </main>
+
+    <div class="actions">
+      <button id="nextBtn" class="btn btn-primary">Next Idea</button>
+      <button id="resetBtn" class="btn btn-secondary">Reset Filter</button>
+    </div>
+
+    <footer>
+      <p id="ideaCount">Loaded 0 ideas</p>
+    </footer>
+  </div>
+
+  <script src="brainstorm-script.js"></script>
+</body>
+</html>
