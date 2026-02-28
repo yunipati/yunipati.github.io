@@ -37,6 +37,25 @@ async function loadIdeas() {
 }
 
 /**
+ * Convert URLs in text to clickable hyperlinks
+ */
+function convertUrlsToLinks(text) {
+  if (!text) return '';
+  
+  // Regex to match URLs
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  
+  // Replace URLs with clickable links, escaping other HTML
+  const div = document.createElement('div');
+  div.textContent = text;
+  let html = div.innerHTML;
+  
+  html = html.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+  
+  return html;
+}
+
+/**
  * Extract all unique tags from ideas
  */
 function getUniqueTags() {
@@ -83,8 +102,8 @@ function displayRandomIdea() {
   // Display title
   ideaTitle.textContent = idea.title || 'Untitled';
 
-  // Display text content
-  ideaText.textContent = idea.textContent || '';
+  // Display text content with clickable links
+  ideaText.innerHTML = convertUrlsToLinks(idea.textContent || '');
 
   // Display tags
   ideaTags.innerHTML = '';
