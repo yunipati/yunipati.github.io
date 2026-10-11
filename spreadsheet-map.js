@@ -34,13 +34,15 @@ function extractPoints(table) {
   }
 
   const nameColumn = findColumn(columns, ['名称', '名前', '地点名', '施設名', 'name', 'title', '場所', '住所', 'address']);
+  const rssiColumn = findColumn(columns, ['RSSI', '受信信号強度', '信号強度']);
   return (table.rows || []).flatMap((row, index) => {
     const cells = row.c || [];
     const latitude = Number(getCellValue(cells[latitudeColumn]));
     const longitude = Number(getCellValue(cells[longitudeColumn]));
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude) || Math.abs(latitude) > 90 || Math.abs(longitude) > 180) return [];
     const name = nameColumn >= 0 ? String(getCellValue(cells[nameColumn])).trim() : '';
-    return [{ latitude, longitude, name: name || `地点 ${index + 1}` }];
+    const rssi = rssiColumn >= 0 ? String(getCellValue(cells[rssiColumn])).trim() : '';
+    return [{ latitude, longitude, name: name || `地点 ${index + 1}`, rssi }];
   });
 }
 
@@ -55,6 +57,12 @@ function showPoints(points) {
     coordinates.className = 'popup-coordinate';
     coordinates.textContent = `${point.latitude.toFixed(6)}, ${point.longitude.toFixed(6)}`;
     popup.append(title, coordinates);
+    if (point.rssi) {
+      const rssi = document.createElement('div');
+      rssi.className = 'popup-rssi';
+      rssi.textContent = `RSSI: ${point.rssi}`;
+      popup.append(rssi);
+    }
     L.marker([point.latitude, point.longitude]).bindPopup(popup).addTo(markers);
   });
   if (points.length) map.fitBounds(markers.getBounds(), { padding: [32, 32], maxZoom: 15 });

@@ -12,5 +12,6 @@ main { flex: 1; min-height: 0; }
 #map { width: 100%; height: 100%; background: #e8edf0; }
 .popup-title { font-weight: 700; margin-bottom: 5px; }
 .popup-coordinate { color: #596775; font-size: 12px; }
+.popup-rssi { margin-top: 7px; color: #1b6045; font-weight: 700; }
 .error { color: #a32e27 !important; }
 @media (max-width: 600px) { .toolbar { gap: 12px; padding: 10px 12px; } .toolbar > a { font-size: 13px; } h1 { font-size: 17px; } #status { font-size: 12px; } button { padding: 8px 10px; font-size: 13px; } }
